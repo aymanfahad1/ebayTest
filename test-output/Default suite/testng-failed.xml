@@ -3,12 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testSuit.ebayTest">
+      <class name="ebay.testCase.ebayTest">
         <methods>
-          <include name="applePage"/>
           <include name="landOnPage"/>
+          <include name="turnoffBrowser"/>
+          <include name="categorySearch"/>
+          <include name="applePage"/>
         </methods>
-      </class> <!-- testSuit.ebayTest -->
+      </class> <!-- ebay.testCase.ebayTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
