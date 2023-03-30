@@ -45,7 +45,7 @@ public class listeners extends baseTest implements ITestListener{
 		}
 		String filePath = null;
 		try {
-			filePath = getScreenShot(result.getMethod().getMethodName(), driver); //this is for if there are no scteenshot it will print no path present 
+			filePath = getScreenShot(result.getMethod().getMethodName(), driver);
 		} 
 		catch (IOException e) {
 			// TODO Auto-generated catch block
