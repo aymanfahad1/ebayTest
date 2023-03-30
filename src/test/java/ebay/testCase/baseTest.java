@@ -1,9 +1,13 @@
 package ebay.testCase;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -21,7 +25,7 @@ public class baseTest {
 	public WebDriver startTheBrowser() throws IOException
 	{
 		 Properties prop =new Properties();
-		 FileInputStream fis = new FileInputStream("C:\\Users\\rashi\\eclipse-workspace\\ebay\\src\\main\\java\\ebay\\resources\\browserName.properties");
+		 FileInputStream fis = new FileInputStream("/Users/aymanfahad/eclipse-workspace/EbayTest/ebayTest/src/main/java/ebay/resources/browserName.properties");
 		 prop.load(fis);
 		 
 		 String browserName = prop.getProperty("browser");
@@ -64,5 +68,13 @@ public class baseTest {
 	public void turnoffBrowser()
 	{
 		driver.quit();
+	}
+	public String getScreenShot(String testCaseName, WebDriver driver) throws IOException
+	{
+		TakesScreenshot ts = (TakesScreenshot)driver;
+		File source = ts.getScreenshotAs(OutputType.FILE);
+		File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
+		FileUtils.copyFile(source, file);
+		return System.getProperty("user.dir") + "//reports//" + testCaseName + ".png";
 	}
 }

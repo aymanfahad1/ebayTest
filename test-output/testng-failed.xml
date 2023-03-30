@@ -7,7 +7,6 @@
         <methods>
           <include name="landOnPage"/>
           <include name="turnoffBrowser"/>
-          <include name="categorySearch"/>
           <include name="applePage"/>
         </methods>
       </class> <!-- ebay.testCase.ebayTest -->

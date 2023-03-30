@@ -25,14 +25,12 @@ public class landOnPage extends reusable {
 	List<WebElement> listOfCategory;
 	@FindBy(xpath = "//div[2]/div/nav[2]/ul/li/a")
 	List<WebElement> listOfitmes;
-	@FindBy(xpath ="//nav/ul/li/a")
-	WebElement itemsOnCategory;
 	
 	public void ebayWebsite()
 	{
 		driver.get("https://www.ebay.com/");
 	}
-	public void lookForCategory(String category)
+	public void lookForCategory(String category) throws InterruptedException
 	{
 		for(int i=0; i<listOfCategory.size(); i++)
 		{
@@ -43,10 +41,11 @@ public class landOnPage extends reusable {
 				break;
 			}
 		}
+		waitforElementBy(By.xpath("//button[text()='Expand: "+category+"']/parent::div/following-sibling::div"));
+		
 	}
-	public void lookForItem(String productName) throws InterruptedException
+	public void lookForItem(String productName) 
 	{
-		waitforElement(itemsOnCategory);
 		
 		for(int j=0; j<listOfitmes.size(); j++)
 		{
